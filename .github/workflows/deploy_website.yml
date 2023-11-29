@@ -9,5 +9,5 @@ jobs:
       - name: Git clone my repo
         uses: actions/checkout@v1
 
-      - name: Check folder
-        run: ls -la
+      - name: Deploy
+        run: ansible-playbook playbook_install_apache_and_website.yml
