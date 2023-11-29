@@ -3,10 +3,6 @@
   hosts: all
   become: yes
 
-  #  vars:
-  #    src_folder: ./mywebsite
-  #    dest_folder: /var/www/html
-
   tasks:
     - name: Print OS Family
       debug:
@@ -64,52 +60,9 @@
         - Extracting main.zip
         - Copying file .conf to sites-available
         - Deleting file .conf
-        - Executing a2ensite
-        - Executing a2dissite
+        - Executing a2ensite and Executing a2dissite
         - Restart Apache Centos
         - Restart Apache Debian
-        
-        
-
-  #    - name: Extracting main.zip
-  #      unarchive:
-  #        remote_src: yes
-  #        src: /var/www/html/My_web_site-main.zip
-  #        dest: /var/www/html/
-
-  #    - name: Copying file .conf to sites-available
-  #      command: cp /var/www/html/My_web_site-main/my_web_site.conf /etc/apache2/sites-available/
-
-  #    - name: Deleting file .conf
-  #      file:
-  #        path: /var/www/html/My_web_site-main/my_web_site.conf
-  #        state: absent
-
-  #    - name: Deleting file .img
-  #      file:
-  #        path: /var/www/html/My_web_site-main.zip
-  #        state: absent
-
-  #  - name: Executing a2ensite
-  #    command: a2ensite my_web_site.conf
-
-  #  - name: Executing a2dissite
-  #    command: a2dissite 000-default.conf
-
-  #    - name: Restart Apache Debian
-  #      service:
-  #        name: apache2
-  #        state: restarted
-  #      when: ansible_os_family=="Debian"
-
-  #     - name: Copy website
-  #       copy: src={{ src_folder }}/{{ item }} dest={{ dest_folder }}
-  #       loop:
-  #         - "index.html"
-  #         - "image.img"
-  #       notify:
-  #         - Restart Apache Centos
-  #         - Restart Apache Debian
 
   handlers:
     - name: Restart Apache Centos
@@ -124,11 +77,8 @@
         state: restarted
       when: ansible_os_family=="Debian"
 
-    - name: Executing a2ensite
-      command: a2ensite my_web_site.conf
-
-    - name: Executing a2dissite
-      command: a2dissite 000-default.conf
+    - name: Executing a2ensite and Executing a2dissite
+      shell: a2ensite my_web_site.conf && a2dissite 000-default.conf
 
     - name: Extracting main.zip
       unarchive:
