@@ -60,26 +60,12 @@
         - Extracting main.zip
         - Copying file .conf to sites-available
         - Deleting file .conf
-        - Executing a2ensite and Executing a2dissite
+        - Executing a2ensite
+        - Executing a2dissite
         - Restart Apache Centos
         - Restart Apache Debian
 
   handlers:
-    - name: Restart Apache Centos
-      service:
-        name: httpd
-        state: restarted
-      when: ansible_os_family=="RedHat"
-
-    - name: Restart Apache Debian
-      service:
-        name: apache2
-        state: restarted
-      when: ansible_os_family=="Debian"
-
-    - name: Executing a2ensite and Executing a2dissite
-      shell: a2ensite my_web_site.conf && a2dissite 000-default.conf
-
     - name: Extracting main.zip
       unarchive:
         remote_src: yes
@@ -93,3 +79,21 @@
       file:
         path: /var/www/html/My_web_site-main/my_web_site.conf
         state: absent
+
+    - name: Executing a2ensite
+      command: a2ensite my_web_site.conf
+
+    - name: Executing a2dissite
+      command: a2dissite 000-default.conf
+
+    - name: Restart Apache Centos
+      service:
+        name: httpd
+        state: restarted
+      when: ansible_os_family=="RedHat"
+
+    - name: Restart Apache Debian
+      service:
+        name: apache2
+        state: restarted
+      when: ansible_os_family=="Debian"
