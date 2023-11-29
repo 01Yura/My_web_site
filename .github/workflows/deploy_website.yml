@@ -1,0 +1,10 @@
+name: deploy_website
+on: 
+  push:
+    branches: main
+jobs:
+  my_deploy:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check Ansible Version
+        run: ansible --version
