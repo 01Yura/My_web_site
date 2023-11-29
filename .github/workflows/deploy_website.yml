@@ -1,10 +1,13 @@
 name: deploy_website
-on: 
+on:
   push:
     branches: main
 jobs:
   my_deploy:
     runs-on: ubuntu-latest
-    steps: 
-      - name: Check Ansible Version
-        run: ansible --version
+    steps:
+      - name: Git clone my repo
+        uses: actions/checkout@v1
+
+      - name: Check folder
+        run: ls -la
