@@ -1,7 +1,5 @@
 name: deploy_website
-on:
-  push:
-    branches: main
+on: [pull_request]
 jobs:
   my_deploy:
     runs-on: ubuntu-latest
