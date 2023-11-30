@@ -1,6 +1,7 @@
 name: deploy_website
-on: workflow_dispatch
-
+on:
+  push:
+    branches: main
 jobs:
   my_deploy:
     runs-on: ubuntu-latest
