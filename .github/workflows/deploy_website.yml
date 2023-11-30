@@ -13,4 +13,4 @@ jobs:
           repository: 01Yura/Ansible-playbooks
 
       - name: Deploy
-        run: ansible-playbook ansible-user=root ansible-password=02081985YuraPrimyshev playbook_install_apache_and_website.yml
+        run: ansible-playbook playbook_install_apache_and_website.yml
