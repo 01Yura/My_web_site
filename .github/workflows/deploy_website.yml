@@ -13,4 +13,4 @@ jobs:
           repository: 01Yura/Ansible-playbooks
 
       - name: Deploy
-        run: ansible-playbook -e "ansible_password=${{secret.MY_PASS}}" playbook_install_apache_and_website.yml
+        run: ansible-playbook -e "ansible_password={{MY_PASS}}" playbook_install_apache_and_website.yml
