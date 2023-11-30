@@ -1,3 +1,0 @@
-[server]
-my_server ansible_host=3.22.222.3 ansible_user=root ansible_password=02081985YuraPrimyshev
-target3 ansible_host=192.168.0.247 ansible_user=root ansible_password=toor
