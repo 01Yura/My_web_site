@@ -11,7 +11,6 @@ jobs:
         uses: actions/checkout@main
         with:
           repository: 01Yura/Ansible-playbooks
-          token: ${{ secrets.my_token }}
              
       - name: Deploy
         run: ansible-playbook playbook_install_apache_and_website.yml
