@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone my repo
-        uses: actions/checkout@v4
+        uses: actions/Ansible-playbooks@v4
         
       - name: Deploy
         run: ansible-playbook playbook_install_apache_and_website.yml
