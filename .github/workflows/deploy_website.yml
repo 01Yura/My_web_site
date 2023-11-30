@@ -5,13 +5,13 @@ on:
 jobs:
   my_deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Git clone my repo
         uses: actions/checkout@v1
-          with:
-            repository: 01Yura/Ansible-playbooks
-            path: Ansible-playbooks
+        with:
+          repository: 01Yura/Ansible-playbooks
+          path: Ansible-playbooks
 
       - name: Deploy
         run: ansible-playbook playbook_install_apache_and_website.yml
