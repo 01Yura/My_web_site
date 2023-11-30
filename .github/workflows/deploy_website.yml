@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Git clone my repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@main
         with:
           repository: 01Yura/Ansible-playbooks
           token: ${{ secrets.my_token }}
