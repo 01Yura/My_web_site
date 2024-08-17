@@ -1,3 +1,3 @@
 <?php$hostname = gethostname();
-echo"<h1>The hostname of this container is: $hostname</h1>";
+echo"<h1>Имя данного хоста: <span style='font-size: 24px;'>$hostname</span></h1>";
 ?>
